@@ -4,20 +4,22 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
+	<key>CFBundleDisplayName</key>
+	<string>Messages</string>
 	<key>CFBundleExecutable</key>
-	<string>iChat</string>
+	<string>Messages Plugin</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.blacktree.Quicksilver.QSiChatPlugIn</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>iChat Module</string>
+	<string>Messages Plugin</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.5.0</string>
+	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>14D</string>
+	<string>154</string>
 	<key>NSPrincipalClass</key>
 	<string>QSiChatPlugIn</string>
 	<key>QSActions</key>
@@ -39,7 +41,7 @@
 			<key>icon</key>
 			<string>com.apple.iChat</string>
 			<key>name</key>
-			<string>Set iChat Status</string>
+			<string>Set Messages Status</string>
 		</dict>
 	</dict>
 	<key>QSPlugIn</key>
@@ -85,7 +87,7 @@
 		<array>
 			<dict>
 				<key>id</key>
-				<string>com.blacktree.Quicksilver.QSChatSupport</string>
+				<string>com.qsapp.QSChatSupport</string>
 				<key>name</key>
 				<string>Chat Support</string>
 			</dict>

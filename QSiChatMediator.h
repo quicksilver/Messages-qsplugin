@@ -8,7 +8,6 @@
 
 #import "iChatPresenceController.h"
 
-#import <Cocoa/Cocoa.h>
 @interface QSiChatMediator : NSObject {
   iChatPresenceController *presenceController;
 }

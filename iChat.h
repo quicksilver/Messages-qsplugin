@@ -4,7 +4,7 @@
 
 #import <AppKit/AppKit.h>
 #import <ScriptingBridge/ScriptingBridge.h>
-
+#define kQSiChatPlugInType @"QSiChatPlugInType"
 
 @class iChatItem, iChatApplication, iChatColor, iChatDocument, iChatWindow, iChatRichText, iChatCharacter, iChatParagraph, iChatWord, iChatAttributeRun, iChatAttachment, iChatApplication, iChatBuddy, iChatService, iChatChat, iChatTextChat, iChatAudioChat, iChatVideoChat, iChatFileTransfer;
 
