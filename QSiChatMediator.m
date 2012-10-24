@@ -10,9 +10,8 @@
 #import "QSChatMediator.h"
 
 #import <InstantMessage/IMService.h>
-#import <ScriptingBridge/ScriptingBridge.h>
 
-#import "iChat.h"
+#import "Messages.h"
 
 //#import "InstantMessage/AddressBookPeople.h"
 //#import "InstantMessage/DaemonicService.h"
@@ -61,10 +60,10 @@
     switch (serviceType) {
       case QSChatInitType:
       {
-        iChatApplication *iChat = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
-        iChatBuddy *buddy = [iChat.buddies objectWithName:screenName];  
+        MessagesApplication *MessagesApp = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
+        MessagesBuddy *buddy = [MessagesApp.buddies objectWithName:screenName];
         
-        [iChat send:@"" to:buddy];
+        [MessagesApp send:@"" to:buddy];
       }
         //      if (personID) return [self chatWithPerson:personID];
         //      
@@ -105,33 +104,23 @@
 }
 
 - (BOOL)sendText:(NSString *)text toAccount:(NSString *)accountID {
-  iChatApplication *iChat = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
-  iChatBuddy *buddy = [iChat.buddies objectWithName:accountID];  
-  
-  [iChat send:text
-           to:buddy];
-  
-  
-  //	NSLog(@"send text %@ %@", text, accountID);
-  //	NSAppleScript *imScript = [[NSAppleScript alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"iChat" ofType:@"scpt"]] error:nil];
-  //	NSDictionary *errorDict = nil;
-  //	[imScript executeSubroutine:@"send_text_to_account" arguments:[NSArray arrayWithObjects:text, accountID, nil] error:&errorDict];
-  //	if (errorDict) NSLog(@"Execute Error: %@", errorDict);
-  //	return !errorDict;
+    MessagesApplication *MessagesApp = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
+    MessagesBuddy *buddy = [MessagesApp.buddies objectWithName:accountID];
+    NSLog(@"sending text to %@", accountID);
+    
+    [MessagesApp send:text to:buddy];
+    return YES;
 }
 
 
 
-- (BOOL)sendFile:(NSString *)paths toAccount:(NSString *)accountID {
-  
-  
-  iChatApplication *iChat = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
-  iChatBuddy *buddy = [iChat.buddies objectWithName:accountID];  
-  
-  for (NSString *path in paths) {
-    [iChat send:path
-             to:buddy];
-  }
+- (BOOL)sendFile:(NSArray *)paths toAccount:(NSString *)accountID {
+    MessagesApplication *MessagesApp = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
+    MessagesBuddy *buddy = [MessagesApp.buddies objectWithName:accountID];
+
+    for (NSString *path in paths) {
+        [MessagesApp send:path to:buddy];
+    }
   
   
   
@@ -164,10 +153,9 @@
 }
 
 - (BOOL)initiateVideoWithAccount:(NSString *)accountID {
-  iChatApplication *iChat = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
-  iChatBuddy *buddy = [iChat.buddies objectWithName:accountID];  
-  [iChat send:iChatInviteTypeVideoInvitation
-           to:buddy];
+  MessagesApplication *MessagesApp = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
+  MessagesBuddy *buddy = [MessagesApp.buddies objectWithName:accountID];
+  [MessagesApp send:@"" to:buddy];
   return YES;
   
   
@@ -180,10 +168,9 @@
 }
 
 - (BOOL)initiateAudioWithAccount:(NSString *)accountID {
-  iChatApplication *iChat = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
-  iChatBuddy *buddy = [iChat.buddies objectWithName:accountID];  
-  [iChat send:iChatInviteTypeAudioInvitation
-           to:buddy];
+  MessagesApplication *MessagesApp = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
+  MessagesBuddy *buddy = [MessagesApp.buddies objectWithName:accountID];
+  [MessagesApp send:@"" to:buddy];
   return YES;
   
   
@@ -196,8 +183,8 @@
 }
 
 - (BOOL)setIChatStatus:(QSObject *)dObject {
-  iChatApplication *iChat = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
-  iChat.statusMessage = [dObject stringValue];
+  MessagesApplication *MessagesApp = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
+  MessagesApp.statusMessage = [dObject stringValue];
   return YES;
   //	NSString *status = [dObject stringValue];
   //	NSAppleScript *imScript = [[NSAppleScript alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"iChat" ofType:@"scpt"]] error:nil];
@@ -218,10 +205,10 @@
 
 - (BOOL)drawIconForObject:(QSObject *)object inRect:(NSRect)rect flipped:(BOOL)flipped {
   
-  iChatApplication *iChat = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
+  MessagesApplication *iChat = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
   //iChat.
-	return nil;
-	if (![object objectForType:QSProcessType]) return nil;
+	return NO;
+	if (![object objectForType:QSProcessType]) return NO;
 	
 	int count = 3;
 	NSImage *icon = [object icon];

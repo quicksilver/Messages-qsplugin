@@ -16,7 +16,6 @@
 		E104367706F8AC6300CF1415 /* QSiChatMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = E104367506F8AC6300CF1415 /* QSiChatMediator.m */; };
 		E104386306F8B7AD00CF1415 /* iChat.scpt in Resources */ = {isa = PBXBuildFile; fileRef = E104386206F8B7AD00CF1415 /* iChat.scpt */; };
 		E112975506F8BA20005E3B5A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E112975406F8BA20005E3B5A /* AddressBook.framework */; };
-		E1EAB046068128A200774DFF /* QSiChatPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EAB045068128A200774DFF /* QSiChatPlugIn.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,11 +23,11 @@
 		7F010D0808D9FCE900054659 /* QSChatMediator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = QSChatMediator.h; path = "../ChatSupport/Chat Support/QSChatMediator.h"; sourceTree = SOURCE_ROOT; };
 		7F4086920D16CE9000E15BB0 /* element.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = element.xml; sourceTree = "<group>"; };
 		7F5D1FC40D25AF280077ED43 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
-		7F5D1FD10D25AFF60077ED43 /* iChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iChat.h; sourceTree = "<group>"; };
 		7F8FC6200D25E52800BD8C1C /* iChatPresenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iChatPresenceController.h; sourceTree = "<group>"; };
 		7F8FC6210D25E52800BD8C1C /* iChatPresenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iChatPresenceController.m; sourceTree = "<group>"; };
 		8D1AC9730486D14A00FE50C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1AC9740486D14A00FE50C9 /* Messages Plugin.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Messages Plugin.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4153E9C16382162002AE924 /* Messages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Messages.h; sourceTree = "<group>"; };
 		D499EDAA1631E61400E29D4B /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		D499EDAB1631E61400E29D4B /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		D499EDAC1631E61400E29D4B /* Developer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Developer.xcconfig; sourceTree = "<group>"; };
@@ -244,8 +243,6 @@
 		E112967E06F8B9F7005E3B5A /* XHTMLGenerator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = XHTMLGenerator.h; sourceTree = "<group>"; };
 		E112967F06F8B9F7005E3B5A /* XMLStreamer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = XMLStreamer.h; sourceTree = "<group>"; };
 		E112975406F8BA20005E3B5A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = /System/Library/Frameworks/AddressBook.framework; sourceTree = "<absolute>"; };
-		E1EAB045068128A200774DFF /* QSiChatPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = QSiChatPlugIn.m; sourceTree = "<group>"; };
-		E1EAB047068128A800774DFF /* QSiChatPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = QSiChatPlugIn.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,7 +306,11 @@
 		32DBCF9E0370C38000C91783 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E1EAB045068128A200774DFF /* QSiChatPlugIn.m */,
+				7F010D0808D9FCE900054659 /* QSChatMediator.h */,
+				E104367406F8AC6300CF1415 /* QSiChatMediator.h */,
+				E104367506F8AC6300CF1415 /* QSiChatMediator.m */,
+				7F8FC6200D25E52800BD8C1C /* iChatPresenceController.h */,
+				7F8FC6210D25E52800BD8C1C /* iChatPresenceController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -317,14 +318,8 @@
 		32DBCF9F0370C38200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				7F5D1FD10D25AFF60077ED43 /* iChat.h */,
-				7F010D0808D9FCE900054659 /* QSChatMediator.h */,
-				E104367406F8AC6300CF1415 /* QSiChatMediator.h */,
-				E104367506F8AC6300CF1415 /* QSiChatMediator.m */,
-				7F8FC6200D25E52800BD8C1C /* iChatPresenceController.h */,
-				7F8FC6210D25E52800BD8C1C /* iChatPresenceController.m */,
 				0259C582FE90428111CA0C5A /* Resources */,
-				E1EAB047068128A800774DFF /* QSiChatPlugIn.h */,
+				D4153E9C16382162002AE924 /* Messages.h */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -580,7 +575,7 @@
 /* Begin PBXProject section */
 		0259C573FE90428111CA0C5A /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 7F07B02E085E433300E2AFC4 /* Build configuration list for PBXProject "iChatElement" */;
+			buildConfigurationList = 7F07B02E085E433300E2AFC4 /* Build configuration list for PBXProject "Messages" */;
 			compatibilityVersion = "Xcode 3.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -630,7 +625,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1EAB046068128A200774DFF /* QSiChatPlugIn.m in Sources */,
 				E104367706F8AC6300CF1415 /* QSiChatMediator.m in Sources */,
 				7F8FC6220D25E52800BD8C1C /* iChatPresenceController.m in Sources */,
 			);
@@ -681,7 +675,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		7F07B02E085E433300E2AFC4 /* Build configuration list for PBXProject "iChatElement" */ = {
+		7F07B02E085E433300E2AFC4 /* Build configuration list for PBXProject "Messages" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7F07B030085E433300E2AFC4 /* Release */,
