@@ -7,7 +7,6 @@
 //
 
 #import "QSiChatMediator.h"
-#import "QSChatMediator.h"
 
 #import <InstantMessage/IMService.h>
 
@@ -49,6 +48,11 @@
 - (int) capabilitiesOfAccount:(NSString *)accountID {
 	if ([accountID hasPrefix:@"AIM:"]) return QSChatAnyMask;
 	return 0;
+}
+
+- (NSString *)statusForAccount:(NSString *)accountID
+{
+    return nil;
 }
 
 - (BOOL)initiateChat:(QSChatType)serviceType withAccounts:(NSArray *)accountIDs info:(id)info {
