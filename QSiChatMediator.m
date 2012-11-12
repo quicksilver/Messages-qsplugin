@@ -38,6 +38,26 @@
 	return [[results lastObject] uniqueId];
 }
 
+- (BOOL)contactIsAvailable:(QSObject *)contact
+{
+    ABPerson *person = [contact ABPerson];
+    for (IMService *service in [IMService allServices]) {
+        for (NSString *name in [service screenNamesForPerson:person]) {
+            NSDictionary *userInfo = [service infoForScreenName:name];
+            NSUInteger status = [[userInfo objectForKey:IMPersonStatusKey] integerValue];
+            if (status & (IMPersonStatusAvailable | IMPersonStatusIdle | IMPersonStatusAway)) {
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
+- (BOOL)accountIsAvailable:(NSString *)accountID
+{
+    return [[self availableAccounts] containsObject:accountID];
+}
+
 - (NSArray *)availableAccounts {
   return [presenceController onlineBuddies];
 	NSArray *array = [self onlineBuddies];
@@ -107,10 +127,23 @@
 	return YES; 	
 }
 
+- (BOOL)sendItem:(QSObject *)item toAccounts:(NSArray *)accounts
+{
+    BOOL sent = NO;
+    for (QSObject *buddy in accounts) {
+        NSString *accountID = [buddy objectForType:QSIMAccountType];
+        if ([[item primaryType] isEqualToString:QSFilePathType]) {
+            sent = [self sendFiles:[item arrayForType:QSFilePathType] toAccount:accountID];
+        } else {
+            sent = [self sendText:[item stringValue] toAccount:accountID];
+        }
+    }
+    return sent;
+}
+
 - (BOOL)sendText:(NSString *)text toAccount:(NSString *)accountID {
     MessagesApplication *MessagesApp = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
     MessagesBuddy *buddy = [MessagesApp.buddies objectWithName:accountID];
-    NSLog(@"sending text to %@", accountID);
     
     [MessagesApp send:text to:buddy];
     return YES;
@@ -118,7 +151,7 @@
 
 
 
-- (BOOL)sendFile:(NSArray *)paths toAccount:(NSString *)accountID {
+- (BOOL)sendFiles:(NSArray *)paths toAccount:(NSString *)accountID {
     MessagesApplication *MessagesApp = [SBApplication applicationWithBundleIdentifier:@"com.apple.iChat"];
     MessagesBuddy *buddy = [MessagesApp.buddies objectWithName:accountID];
 

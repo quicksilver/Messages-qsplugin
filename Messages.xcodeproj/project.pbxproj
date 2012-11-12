@@ -318,8 +318,8 @@
 		32DBCF9F0370C38200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				0259C582FE90428111CA0C5A /* Resources */,
 				D4153E9C16382162002AE924 /* Messages.h */,
+				0259C582FE90428111CA0C5A /* Resources */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";

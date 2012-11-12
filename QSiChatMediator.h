@@ -17,7 +17,7 @@
 - (BOOL)sendText:(NSString *)text toAccount:(NSString *)accountID;
 - (NSArray *)onlineBuddies;
 - (BOOL)sendText:(NSString *)text toAccount:(NSString *)accountID;
-- (BOOL)sendFile:(NSString *)path toAccount:(NSString *)accountID;
+- (BOOL)sendFiles:(NSArray *)path toAccount:(NSString *)accountID;
 - (BOOL)initiateAudioWithAccount:(NSString *)accountID;
 - (BOOL)initiateVideoWithAccount:(NSString *)accountID;
 @end
